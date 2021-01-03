@@ -16,11 +16,15 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
+    projects: '**/*.csproj'
     feedsToUse: 'select'
-    vstsFeed: 'my-vsts-feed' # A series of numbers and letters
+    vstsFeed: '9cca6182-1a1f-4432-97b5-4a3fecad56c7'
+   
+
 
 - task: DotNetCoreCLI@2
+  displayName: Build
   inputs:
     command: 'build'
+    projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
-  displayName: 'dotnet build $(buildConfiguration)'
